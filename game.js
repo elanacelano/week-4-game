@@ -1,23 +1,24 @@
-var listItems = getElementsById ("my-list").getElementByTagName("li");
+var listItems = getElementsById("my-list").getElementByTagName("li");
 
-	for( i = 0; i < listItems.length; i ++);
-		listItems[i].add EventListener("click", activateItem);
+for (i = 0; i < listItems.length; i++);
+listItems[i].addEventListener("click", activateItem);
 }
-function activateItem{
-	alert("Click Detected");
+
+function activateItem {
+    alert("Click Detected");
 }
 
 // /////////////////
-$(document ).ready(function()){
-	var Random = Math.floor(Math.random()* 100 + 1)
-// Selects a random number
-$("#randomNumber").text("Random");
-}
+$(document).ready(function() {
+    var Random = Math.floor(Math.random() * 100 + 1);
+    // Selects a random number
+    $("#randomNumber").text("Random");
+})
 
-var num1 =  Math.floor(Math.random()* 10 + 1)
-var num2 =  Math.floor(Math.random()* 10 + 1)
-var num3 =  Math.floor(Math.random()* 10 + 1)
-var num4 =  Math.floor(Math.random()* 10 + 1)
+var num1 = Math.floor(Math.random() * 10 + 1)
+var num2 = Math.floor(Math.random() * 10 + 1)
+var num3 = Math.floor(Math.random() * 10 + 1)
+var num4 = Math.floor(Math.random() * 10 + 1)
 //setting up random numbers for the jewels
 
 // // Gobal variables that are accesible for all
@@ -30,69 +31,69 @@ var num4 =  Math.floor(Math.random()* 10 + 1)
 // 	$(".total").empty();
 // 	$(".total").append(total);
 //assigns a random number to each crystals 
-var red = Math.floor(Math.random()* 10) + 1);
-var blue = Math.floor(Math.random()* 10) + 1);
-var yellow = Math.floor(Math.random()* 10) + 1);
-var green = Math.floor(Math.random()* 10) + 1);
+var red = Math.floor(Math.random() * 10) + 1;
+var blue = Math.floor(Math.random() * 10) + 1);
+var yellow = Math.floor(Math.random() * 10) + 1);
+var green = Math.floor(Math.random() * 10) + 1);
 //appending the addition in the HTML
-var updateAddition = fucntion(){
-	$(".addition").empty();
-	$(".addition").append(addition);
+var updateAddition = fucntion() {
+    $(".addition").empty();
+    $(".addition").append(addition);
 
-	$("#wins").empty();
-	$("#wins").append(wins);
+    $("#wins").empty();
+    $("#wins").append(wins);
 
-	$("#losses").empty();
-	$("#losses").append(losses);
+    $("#losses").empty();
+    $("#losses").append(losses);
 }
 //Restarting the function can be achieved as follow
-var restart = function(){
-	addition = 0;
-	total = Math.floor(Math.random()* 100)+ 1);
-	$(".total").empty();
-	$(".total").append(total);
-		red = Math.floor(Math.random()* 10) + 1);
-		blue = Math.floor(Math.random()*10)+ 1);
-		yellow = Math.floor(Math.random()*10) +1);
-		green = Math.floor(Math.random()* 10) +1);
-	// updateAddition();
+var restart = function() {
+    addition = 0;
+    total = Math.floor(Math.random() * 100 + 1);
+    $(".total").empty();
+    $(".total").append(total);
+    red = Math.floor(Math.random() * 10) + 1);
+blue = Math.floor(Math.random() * 10) + 1);
+yellow = Math.floor(Math.random() * 10) + 1);
+green = Math.floor(Math.random() * 10) + 1);
+// updateAddition();
 }
 //the logic to determin win and losses
-var logic = function(){
+var logic = function() {
 
-	if(addition == total) {
-		wins = wins + 1;
-		alert("You Win!");
-		restart();
+    if (addition == total) {
+        wins = wins + 1;
+        alert("You Win!");
+        restart();
 
-	}else if(addition > total){
-		losses = losses + 1;
-		alert("You Loose!");
-		restart();
+    } else if (addition > total) {
+        losses = losses + 1;
+        alert("You Loose!");
+        restart();
 
-	}else{
-		updateAddition();
-	}
+    } else {
+        updateAddition();
+    }
 }
-	$(".addition").append(total);
-	$(".addition").append(addition);
+$(".addition").append(total);
+$(".addition").append(addition);
 //The on click function
-	$(document).ready(function(){
-	$("#red").click(function(){
-		addition = addition + red;
-		console.log();
-})
+$(document).ready(function() {
+    $("#red").click(function() {
+        addition = addition + red;
+        console.log();
+    })
 
-	$("#blue").click(function(){
-		addition = addition + blue;
-		console.log();
-})
-	$("#yellow").click(function(){
-		addition = addition + yellow;
-		console.log();
-})
-	$("#green").click(function(){
-		addition = addition + green;
-		console.log();
-})
+    $("#blue").click(function() {
+        addition = addition + blue;
+        console.log();
+    })
+    $("#yellow").click(function() {
+        addition = addition + yellow;
+        console.log();
+    })
+    $("#green").click(function() {
+        addition = addition + green;
+        console.log();
+    })
 });
