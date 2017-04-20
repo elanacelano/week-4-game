@@ -19,30 +19,57 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+/*	font-family: 'Asar', serif;*/
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1;
+
+h3{
+	padding: 5px;
+	border: 35px;
+	
 }
+
+body {
+	margin: 25px;
+	padding: 5px;
+	border: 25px;
+    background-image: url();
+    font-family: 'Raleway', sans-serif;
+}
+
+line-height: 1;
+}
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+image {
+	src: "Blue C.png";
+	src: "Green C.png";
+	src: "Red C.png";
+	src: "Yellow C.png";
+}
+
+background-image {
+	src:"";
 }

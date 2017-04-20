@@ -1,88 +1,71 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Crystal Collector</title>
-  </head>
-  <body>
-    <h3>Crystal Collector</h3>
-    <div id="guessingNumber"></div>
-    <script type="text/javascript">
-        var word = "elana";
-        var wordInSpaces = [];
-        function runGame(){
-          var wordInArray = word.split("");
-          wordInArray.forEach(function(i){
-              i = " _ "
-              wordInSpaces.push(i);
-          });
-          document.getElementById('letters').innerHTML = wordInSpaces.join("");
-          document.onkeyup = function(event) {
-          var letter = String.fromCharCode(event.keyCode).toLowerCase();
-          var arrayPostion = wordInArray.indexOf(letter);
-          if(wordInArray.indexOf(letter) > -1){
-                console.log("yess its in the word..")
-          }else{
-            console.log("Not in the word")
-          }
-          }
-        }
-        runGame();
-    </script>
-  </body>
-</html>
-
-  // what are the varhiables 
-
-    var word = [];
-    var wordToBeGuessed = "Boolean"
-    var hangmanGame = { //opening hangmanGame object
-      hangmanState: -1,
-      
-      // how many guesses
-      gameAnswer: function() { 
-
-          var wordInArray = wordToBeGuessed.split("");
-
-          for(i=0; i < wordInArray.length; i++){
-            word.push(" _ ")
-          }
-
-
-
-        document.onkeyup = function(event) {
-        var guessedLetter = String.fromCharCode(event.keyCode).toLowerCase();
-   
-
-    
-
-            for(i=0; i< wordInArray.length; i++){
-
-            
-
-              if(guessedLetter === wordInArray[i]){
-                console.log("what....")
-              }
-            }
-
-
-
-
-
-        // if(wordInArray.indexOf(guessedLetter) > 1){
-        //   alert(guessedLetter);
-        //   console.log(wordInArray);
-        //   console.log(guessedLetter)
-
-        // }else{
-        //   alert("letter you guessed is not in the word.")
-        //   console.log(wordInArray);
-        // }
- }
-    }// closing hangmanGame object
+// Gobal variables that are accesible for all
+var wins = 0;
+var losses = 0;
+//Players current score 
+var addition = 0;
+// selecting a rundom number
+var total = Math.floor(Math.random()* 100) + 1);
+  $(".total").empty();
+  $(".total".append(total);
+//assigns a random number to each crystals 
+var red = Math.floor(Math.random()* 10) + 1);
+var blue = Math.floor(Math.random()* 10) +1);
+var yellow = Math.floor(Math.random()* 10) +1);
+var green = Math.floor(Math.random)* 10) +1);
+//appending the addition in the HTML
+var updateAddition = fucntion(){
+  $(".addition").empty();
+  $(".addition").append(addition);
+  $("#wins").empty();
+  $("#wins").append(wins);
+  $("#losses").empty();
+  $("#losses").append(losses);
 }
-//document.getElementById("hangmanletters").innerHTML = hangmanGame.gameShownAnswer;
-hangmanGame.gameAnswer();
-document.getElementById("answerArea").innerHTML = word.join(" ");
+//Restarting the function can be achieved as follow
+var restart = function(){
+  addition = 0;
+  total = Math.floor(Math.random()* 100)+ 1);
+    $(".total").empty();
+    $(".total").append(total);
+  red = Math.floor(Math.random()* 10) + 1);
+  blue = Math.floor(Math.random()*10)+ 1);
+  yellow = Math.floor(Math.random()*10) +1);
+  green = Math.floor(Math.random()* 10) +1);
+  updateAddition();
+}
+//the logic to determin win and losses
+var logic = function(){
+  if(addition == total) {
+    wins = wins + 1;
+    alert("You Win!");
+    restart();
+  }else if(addition > total){
+    losses = losses + 1;
+    alert("You Lost!");
+    restart();
+  }else{
+    updateAddition();
+  }
+}
+  $(".addition").append(total);
+  $(".addition").append(addition);
+//The on click function
+  $(document).ready(function(){
+  $("#red").click(function(){
+    addition = addition + red;
+    logic();
+})
 
-//document.getElementById('answer-area').innerHTML = word.join(' ');
+  $("#blue").click(function(){
+  addition = addition + blue;
+  logic();
+})
+  $("#yellow").click(function(){
+  addition = addition + yellow;
+  logic();
+})
+  $("#green").click(function(){
+  addition = addition + green;
+  logic();
+})
+});
